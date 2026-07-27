@@ -78,21 +78,24 @@ cd your-repo-name
 
 3. Open the index.html file directly in your browser (double-click), or use a local server:
 
-### Using Python 3 (Mac/Linux)
+-- Using Python 3 (Mac/Linux)
 python3 -m http.server 8000
 
-### Using Python 2
+-- Using Python 2
 python -m SimpleHTTPServer 8000
 
-### Using VS Code Live Server extension (recommended)
-### Install the extension, right-click index.html, and select "Open with Live Server"
+-- Using VS Code Live Server extension (recommended)
+ Install the extension, right-click index.html, and select "Open with Live Server"
 
 4. View it at: http://localhost:8000 (or the URL provided by your server)
 
-### 👨‍💻 Author
-Anshu Sharma
-📧 
-🔗 GitHub : https://github.com/anshu25bai11353-coder
-🔗 LinkedIn : https://www.linkedin.com/in/anshu-sharma-mac/
+# 👨‍💻 Author
+Anshu Sharma  
+📧  
+🔗 GitHub : https://github.com/anshu25bai11353-coder  
+🔗 LinkedIn : https://www.linkedin.com/in/anshu-sharma-mac/  
+
+
+
 
 
