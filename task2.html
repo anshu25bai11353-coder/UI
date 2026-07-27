@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hackathon 2026 · Register Now</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <style>
+        /* ─── CSS Variables (Light & Dark) ─── */
+        :root {
+            --bg: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-card-alt: #f1f5f9;
+            --text: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+            --primary: #7c3aed;
+            --primary-light: #a78bfa;
+            --primary-dark: #5b21b6;
+            --gradient: linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #4f46e5 100%);
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font: 'Inter', system-ui, -apple-system, sans-serif;
+            --nav-bg: rgba(255, 255, 255, 0.85);
+            --nav-border: rgba(226, 232, 240, 0.6);
+            --input-bg: #f1f5f9;
+            --timeline-line: #e2e8f0;
+            --timeline-dot: #7c3aed;
+            --prize-card-bg: #f1f5f9;
+            --sponsor-border: #e2e8f0;
+            --footer-bg: #0f172a;
+            --footer-text: #e2e8f0;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-alt: #334155;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --primary: #8b5cf6;
+            --primary-light: #a78bfa;
+            --primary-dark: #7c3aed;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
+            --nav-bg: rgba(15, 23, 42, 0.92);
+            --nav-border: rgba(51, 65, 85, 0.6);
+            --input-bg: #334155;
+            --timeline-line: #334155;
+            --timeline-dot: #8b5cf6;
+            --prize-card-bg: #334155;
+            --sponsor-border: #334155;
+            --footer-bg: #020617;
+            --footer-text: #94a3b8;
+        }
+
+        /* ─── Reset & Base ─── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            transition: background var(--transition), color var(--transition);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        section {
+            padding: 80px 0;
+        }
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--primary);
+            background: var(--bg-card-alt);
+            padding: 4px 16px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .section-title span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 640px;
+            line-height: 1.7;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ─── Buttons ─── */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            background: var(--gradient);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(124, 58, 237, 0.35);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(124, 58, 237, 0.45);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            box-shadow: none;
+            border: 2px solid var(--border);
+        }
+        .btn-outline:hover {
+            background: var(--bg-card-alt);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        .btn-sm {
+            padding: 10px 24px;
+            font-size: 0.85rem;
+        }
+
+        /* ─── Navbar ─── */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            background: var(--nav-bg);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border-bottom: 1px solid var(--nav-border);
+            transition: background var(--transition), border var(--transition);
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .nav-logo span {
+            font-weight: 400;
+            -webkit-text-fill-color: var(--text-muted);
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+        }
+        .nav-links a {
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: all var(--transition);
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text);
+            background: var(--bg-card-alt);
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .theme-toggle {
+            background: var(--bg-card-alt);
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all var(--transition);
+            color: var(--text);
+        }
+        .theme-toggle:hover {
+            background: var(--border);
+            transform: rotate(12deg);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+        }
+        .hamburger span {
+            width: 26px;
+            height: 2.5px;
+            background: var(--text);
+            border-radius: 4px;
+            transition: all var(--transition);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ─── Hero ─── */
+        .hero {
+            padding: 140px 0 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-content h1 {
+            font-size: clamp(2.6rem, 7vw, 4.2rem);
+            font-weight: 800;
+            line-height: 1.08;
+            margin-bottom: 20px;
+        }
+        .hero-content h1 .highlight {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 480px;
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+        .hero-stats .stat h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-stats .stat p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 40px 36px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            width: 100%;
+            max-width: 400px;
+            transition: background var(--transition), border var(--transition);
+        }
+        .hero-card .countdown {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            text-align: center;
+            margin: 20px 0 24px;
+        }
+        .hero-card .countdown .cd-item {
+            background: var(--bg-card-alt);
+            border-radius: var(--radius-sm);
+            padding: 12px 6px;
+            transition: background var(--transition);
+        }
+        .hero-card .countdown .cd-item .num {
+            font-size: 2.2rem;
+            font-weight: 800;
+            display: block;
+            line-height: 1.2;
+            color: var(--text);
+        }
+        .hero-card .countdown .cd-item .label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+        }
+        .hero-card .event-date {
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .hero-card .event-date strong {
+            color: var(--text);
+        }
+
+        /* ─── About ─── */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .about-feature {
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            padding: 24px 20px;
+            border: 1px solid var(--border);
+            transition: all var(--transition);
+        }
+        .about-feature:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary-light);
+        }
+        .about-feature .icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .about-feature h4 {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        .about-feature p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* ─── Schedule ─── */
+        .schedule-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto 0;
+            padding-left: 32px;
+        }
+        .schedule-timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--timeline-line);
+            border-radius: 4px;
+        }
+        .timeline-item {
+            position: relative;
+            padding: 0 0 40px 32px;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.6s ease;
+        }
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 6px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--timeline-dot);
+            border: 3px solid var(--bg);
+            box-shadow: 0 0 0 3px var(--timeline-dot);
+            transition: background var(--transition), border var(--transition);
+        }
+        .timeline-item .time {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .timeline-item h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin: 4px 0 6px;
+        }
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* ─── Prizes ─── */
+        .prizes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .prize-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .prize-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+        .prize-card .rank {
+            font-size: 2.6rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .prize-card .amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text);
+            margin: 8px 0 4px;
+        }
+        .prize-card .label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .prize-card .badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--gradient);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 50px;
+            letter-spacing: 0.04em;
+        }
+        .prize-card.featured {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px var(--primary-light), var(--shadow);
+        }
+
+        /* ─── Sponsors ─── */
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+            align-items: center;
+        }
+        .sponsor-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            padding: 28px 16px;
+            text-align: center;
+            border: 1px solid var(--sponsor-border);
+            transition: all var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 120px;
+        }
+        .sponsor-card:hover {
+            transform: scale(1.03);
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow);
+        }
+        .sponsor-card .sponsor-icon {
+            font-size: 2.8rem;
+            margin-bottom: 6px;
+        }
+        .sponsor-card h4 {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .sponsor-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* ─── Registration ─── */
+        .register-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+            align-items: start;
+        }
+        .register-info h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .register-info p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .register-info ul {
+            list-style: none;
+            padding: 0;
+        }
+        .register-info ul li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+        .register-info ul li:last-child {
+            border-bottom: none;
+        }
+        .register-info ul li .icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .register-form {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 36px 32px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: background var(--transition), border var(--transition);
+        }
+        .register-form .form-group {
+            margin-bottom: 20px;
+        }
+        .register-form label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+        .register-form label .required {
+            color: #ef4444;
+            margin-left: 2px;
+        }
+        .register-form input,
+        .register-form select,
+        .register-form textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: var(--radius-sm);
+            border: 2px solid var(--border);
+            background: var(--input-bg);
+            color: var(--text);
+            font-family: var(--font);
+            font-size: 0.95rem;
+            transition: all var(--transition);
+            outline: none;
+        }
+        .register-form input:focus,
+        .register-form select:focus,
+        .register-form textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
+            background: var(--bg-card);
+        }
+        .register-form input.error,
+        .register-form select.error,
+        .register-form textarea.error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.12);
+        }
+        .register-form .error-msg {
+            color: #ef4444;
+            font-size: 0.8rem;
+            margin-top: 4px;
+            display: none;
+        }
+        .register-form .error-msg.show {
+            display: block;
+        }
+        .register-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .register-form .btn {
+            width: 100%;
+            justify-content: center;
+            padding: 16px;
+            font-size: 1rem;
+        }
+        .register-form .form-success {
+            display: none;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .register-form .form-success .icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+        .register-form .form-success h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .register-form .form-success p {
+            color: var(--text-muted);
+        }
+        .register-form .form-success.show {
+            display: block;
+        }
+        .register-form .form-fields.hide {
+            display: none;
+        }
+
+        /* ─── Gallery (Bonus) ─── */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 40px;
+        }
+        .gallery-item {
+            aspect-ratio: 1 / 1;
+            border-radius: var(--radius-sm);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.6rem;
+            transition: all var(--transition);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-item:hover {
+            transform: scale(1.04);
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow);
+        }
+        .gallery-item .g-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 8px 12px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity var(--transition);
+        }
+        .gallery-item:hover .g-label {
+            opacity: 1;
+        }
+
+        /* ─── Footer ─── */
+        .footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 48px 0 32px;
+            margin-top: 20px;
+        }
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        .footer .copy {
+            font-size: 0.9rem;
+            color: var(--footer-text);
+            opacity: 0.7;
+        }
+        .footer .socials {
+            display: flex;
+            gap: 16px;
+        }
+        .footer .socials a {
+            color: var(--footer-text);
+            font-size: 1.4rem;
+            opacity: 0.6;
+            transition: all var(--transition);
+        }
+        .footer .socials a:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+            color: var(--primary-light);
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .hero-card {
+                max-width: 100%;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .register-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: var(--nav-bg);
+                backdrop-filter: blur(16px);
+                flex-direction: column;
+                padding: 24px;
+                gap: 4px;
+                border-bottom: 1px solid var(--nav-border);
+                transform: translateY(-120%);
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: var(--shadow);
+            }
+            .nav-links.open {
+                transform: translateY(0);
+            }
+            .nav-links a {
+                padding: 12px 16px;
+                width: 100%;
+                text-align: center;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero {
+                padding: 120px 0 60px;
+                min-height: auto;
+            }
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+            .hero-card .countdown .cd-item .num {
+                font-size: 1.6rem;
+            }
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+            .register-form .form-row {
+                grid-template-columns: 1fr;
+            }
+            .register-form {
+                padding: 24px 18px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .prizes-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .prizes-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero-card .countdown {
+                gap: 8px;
+            }
+            .hero-card .countdown .cd-item .num {
+                font-size: 1.3rem;
+            }
+            .container {
+                padding: 0 16px;
+            }
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        /* ─── Scroll Animations (reveal) ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ─── NAVBAR ─── -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a href="#" class="nav-logo">Hack<span>2026</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#prizes">Prizes</a></li>
+                <li><a href="#sponsors">Sponsors</a></li>
+                <li><a href="#register">Register</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    🌙
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ─── HOME / HERO ─── -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <span class="section-label">🚀 48-Hour Innovation</span>
+                <h1>
+                    Build the Future<br />
+                    <span class="highlight">at Hackathon 2026</span>
+                </h1>
+                <p>
+                    Join 500+ creators, engineers, and dreamers for a weekend of
+                    coding, collaboration, and world-changing ideas.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#register" class="btn">Register Now →</a>
+                    <a href="#about" class="btn btn-outline">Learn More</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>500+</h3>
+                        <p>Participants</p>
+                    </div>
+                    <div class="stat">
+                        <h3>48h</h3>
+                        <p>Nonstop Hacking</p>
+                    </div>
+                    <div class="stat">
+                        <h3>$25K</h3>
+                        <p>In Prizes</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div style="text-align:center;font-weight:700;font-size:1.1rem;margin-bottom:4px;">
+                        ⏳ Countdown to Kickoff
+                    </div>
+                    <div class="countdown" id="countdown">
+                        <div class="cd-item"><span class="num" id="cdDays">00</span><span class="label">Days</span></div>
+                        <div class="cd-item"><span class="num" id="cdHours">00</span><span class="label">Hours</span></div>
+                        <div class="cd-item"><span class="num" id="cdMins">00</span><span class="label">Mins</span></div>
+                        <div class="cd-item"><span class="num" id="cdSecs">00</span><span class="label">Secs</span></div>
+                    </div>
+                    <div class="event-date">
+                        📍 <strong>August 5–7, 2026, 2026</strong> · VIT Bhopal University , MP
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── ABOUT ─── -->
+    <section id="about" style="background:var(--bg-card-alt);transition:background var(--transition);">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">About</span>
+                <h2 class="section-title">What is <span>Hackathon 2026</span>?</h2>
+                <p class="section-desc mx-auto">
+                    A 48-hour innovation marathon where developers, designers, and
+                    entrepreneurs come together to build impactful solutions.
+                </p>
+            </div>
+            <div class="about-grid">
+                <div class="about-text reveal-left">
+                    <p>
+                        Hackathon 2026 is more than just a competition — it's a
+                        launchpad for ideas that matter. Whether you're a seasoned
+                        developer or a first-time hacker, you'll find mentorship,
+                        resources, and a community that pushes you to think bigger.
+                    </p>
+                    <p>
+                        From AI and climate tech to health and education, we're
+                        tackling the most pressing challenges of our time. No idea is
+                        too bold, and no team is too small.
+                    </p>
+                </div>
+                <div class="about-features reveal-right">
+                    <div class="about-feature">
+                        <div class="icon">🧠</div>
+                        <h4>Mentorship</h4>
+                        <p>Industry experts guide your journey.</p>
+                    </div>
+                    <div class="about-feature">
+                        <div class="icon">⚡</div>
+                        <h4>Workshops</h4>
+                        <p>Hands-on sessions from the best.</p>
+                    </div>
+                    <div class="about-feature">
+                        <div class="icon">🌍</div>
+                        <h4>Global Community</h4>
+                        <p>Connect with hackers worldwide.</p>
+                    </div>
+                    <div class="about-feature">
+                        <div class="icon">🏆</div>
+                        <h4>Prizes &amp; Recognition</h4>
+                        <p>$25K+ in cash and perks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SCHEDULE ─── -->
+    <section id="schedule">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Schedule</span>
+                <h2 class="section-title">Event <span>Timeline</span></h2>
+                <p class="section-desc mx-auto">
+                    Two days of hacking, learning, and fun. Here's what to expect.
+                </p>
+            </div>
+            <div class="schedule-timeline" id="timeline">
+                <div class="timeline-item">
+                    <div class="time">Day 1 · August 5</div>
+                    <h4>🚀 Kickoff &amp; Team Formation</h4>
+                    <p>Opening ceremony, keynote, and team-building session.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">Day 1 · August 5</div>
+                    <h4>💡 Idea Pitch &amp; Workshops</h4>
+                    <p>Pitch your idea, form teams, and attend mentor-led workshops.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">Day 2 · August 6</div>
+                    <h4>⌨️ Hacking Marathon</h4>
+                    <p>24 hours of non-stop coding, design, and iteration.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">Day 3 · August 7</div>
+                    <h4>🎤 Demos &amp; Judging</h4>
+                    <p>Present your project to a panel of industry judges.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">Day 3 · August 7</div>
+                    <h4>🏆 Awards Ceremony</h4>
+                    <p>Celebration, prizes, and closing remarks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PRIZES ─── -->
+    <section id="prizes" style="background:var(--bg-card-alt);transition:background var(--transition);">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Prizes</span>
+                <h2 class="section-title">What's <span>Up for Grabs</span></h2>
+                <p class="section-desc mx-auto">
+                    Over $25,000 in cash, gear, and mentorship opportunities.
+                </p>
+            </div>
+            <div class="prizes-grid">
+                <div class="prize-card featured reveal-scale">
+                    <div class="badge">🥇 Grand Prize</div>
+                    <div class="rank">#1</div>
+                    <div class="amount">$12,000</div>
+                    <div class="label">Cash + Tech Package + Mentorship</div>
+                </div>
+                <div class="prize-card reveal-scale" style="transition-delay:0.1s;">
+                    <div class="badge">🥈 Runner-Up</div>
+                    <div class="rank">#2</div>
+                    <div class="amount">$6,000</div>
+                    <div class="label">Cash + Gear + Cloud Credits</div>
+                </div>
+                <div class="prize-card reveal-scale" style="transition-delay:0.2s;">
+                    <div class="badge">🥉 Third Place</div>
+                    <div class="rank">#3</div>
+                    <div class="amount">$3,000</div>
+                    <div class="label">Cash + Hardware Kit</div>
+                </div>
+                <div class="prize-card reveal-scale" style="transition-delay:0.3s;">
+                    <div class="badge">✨ Special</div>
+                    <div class="rank">🎯</div>
+                    <div class="amount">$2,000</div>
+                    <div class="label">Best Social Impact Project</div>
+                </div>
+                <div class="prize-card reveal-scale" style="transition-delay:0.4s;">
+                    <div class="badge">✨ Special</div>
+                    <div class="rank">🤖</div>
+                    <div class="amount">$2,000</div>
+                    <div class="label">Best AI/ML Innovation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SPONSORS ─── -->
+    <section id="sponsors">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Sponsors</span>
+                <h2 class="section-title">Our <span>Partners</span></h2>
+                <p class="section-desc mx-auto">
+                    Proudly supported by leading tech companies and organizations.
+                </p>
+            </div>
+            <div class="sponsors-grid">
+                <div class="sponsor-card reveal-scale">
+                    <div class="sponsor-icon">⚡</div>
+                    <h4>TechFlow</h4>
+                    <p>Cloud &amp; Infrastructure</p>
+                </div>
+                <div class="sponsor-card reveal-scale" style="transition-delay:0.05s;">
+                    <div class="sponsor-icon">🧬</div>
+                    <h4>Nexus Labs</h4>
+                    <p>AI &amp; Research</p>
+                </div>
+                <div class="sponsor-card reveal-scale" style="transition-delay:0.1s;">
+                    <div class="sponsor-icon">🚀</div>
+                    <h4>VentureStack</h4>
+                    <p>Startup Accelerator</p>
+                </div>
+                <div class="sponsor-card reveal-scale" style="transition-delay:0.15s;">
+                    <div class="sponsor-icon">🛠️</div>
+                    <h4>DevForge</h4>
+                    <p>Developer Tools</p>
+                </div>
+                <div class="sponsor-card reveal-scale" style="transition-delay:0.2s;">
+                    <div class="sponsor-icon">🌐</div>
+                    <h4>OpenWeb</h4>
+                    <p>Web3 &amp; Decentralization</p>
+                </div>
+                <div class="sponsor-card reveal-scale" style="transition-delay:0.25s;">
+                    <div class="sponsor-icon">🎓</div>
+                    <h4>EduTech</h4>
+                    <p>Learning &amp; Mentorship</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── REGISTRATION ─── -->
+    <section id="register" style="background:var(--bg-card-alt);transition:background var(--transition);">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Register</span>
+                <h2 class="section-title">Claim Your <span>Spot</span></h2>
+                <p class="section-desc mx-auto">
+                    Registration is free. Join the next generation of innovators.
+                </p>
+            </div>
+            <div class="register-wrapper">
+                <div class="register-info reveal-left">
+                    <h3>Why join?</h3>
+                    <p>
+                        Hackathon 2026 is your chance to build something meaningful,
+                        learn from the best, and launch your career.
+                    </p>
+                    <ul>
+                        <li><span class="icon">✅</span> Free registration &amp; meals</li>
+                        <li><span class="icon">👥</span> Team up with top talent</li>
+                        <li><span class="icon">🧑‍🏫</span> Mentorship from industry leaders</li>
+                        <li><span class="icon">🎁</span> Swag, prizes &amp; networking</li>
+                    </ul>
+                </div>
+                <div class="register-form reveal-right" id="registerForm">
+                    <div class="form-fields" id="formFields">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name <span class="required">*</span></label>
+                                <input type="text" id="firstName" placeholder="Jane" />
+                                <div class="error-msg" id="firstNameError">Please enter your first name.</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name <span class="required">*</span></label>
+                                <input type="text" id="lastName" placeholder="Doe" />
+                                <div class="error-msg" id="lastNameError">Please enter your last name.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" placeholder="jane@example.com" />
+                            <div class="error-msg" id="emailError">Please enter a valid email address.</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Company / School</label>
+                            <input type="text" id="organization" placeholder="Acme Inc." />
+                        </div>
+                        <div class="form-group">
+                            <label>Why do you want to join? <span class="required">*</span></label>
+                            <textarea id="reason" rows="3" placeholder="I'm passionate about building products that matter..."></textarea>
+                            <div class="error-msg" id="reasonError">Please share why you'd like to join.</div>
+                        </div>
+                        <button class="btn" id="submitBtn" type="button">Register →</button>
+                    </div>
+                    <div class="form-success" id="formSuccess">
+                        <div class="icon">🎉</div>
+                        <h4>You're In!</h4>
+                        <p>We've sent a confirmation email to your inbox. See you at Hackathon 2026!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── GALLERY (Bonus) ─── -->
+    <section id="gallery">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-label">Gallery</span>
+                <h2 class="section-title">Moments from <span>Past Events</span></h2>
+                <p class="section-desc mx-auto">
+                    A glimpse into the energy, creativity, and community of Hackathon.
+                </p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal-scale" style="transition-delay:0.0s;">
+                    🖥️
+                    <span class="g-label">Hacking in action</span>
+                </div>
+                <div class="gallery-item reveal-scale" style="transition-delay:0.05s;">
+                    🎤
+                    <span class="g-label">Keynote stage</span>
+                </div>
+                <div class="gallery-item reveal-scale" style="transition-delay:0.1s;">
+                    🤝
+                    <span class="g-label">Team collab</span>
+                </div>
+                <div class="gallery-item reveal-scale" style="transition-delay:0.15s;">
+                    🏆
+                    <span class="g-label">Awards ceremony</span>
+                </div>
+                <div class="gallery-item reveal-scale" style="transition-delay:0.2s;">
+                    🧠
+                    <span class="g-label">Mentorship session</span>
+                </div>
+                <div class="gallery-item reveal-scale" style="transition-delay:0.25s;">
+                    🌟
+                    <span class="g-label">Demo day</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer class="footer">
+        <div class="container">
+            <div class="copy">
+                © 2026 Hackathon. Built with ❤️ by Anshu Sharma
+                {VIT Bhopal University} . 
+            </div>
+            <div class="socials">
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="GitHub">🐙</a>
+                <a href="#" aria-label="LinkedIn">🔗</a>
+                <a href="#" aria-label="YouTube">📺</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ─── DOM refs ───
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const navAnchors = navLinks.querySelectorAll('a');
+
+        // ─── Theme Toggle ───
+        function setTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+            localStorage.setItem('theme', theme);
+        }
+        const saved = localStorage.getItem('theme') || 'light';
+        setTheme(saved);
+
+        themeToggle.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+
+        // ─── Mobile Menu ───
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        navAnchors.forEach(a => {
+            a.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // ─── Active nav link on scroll ───
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 100;
+                if (window.scrollY >= top) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navAnchors.forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+            });
+        });
+
+        // ─── Countdown Timer ───
+        const target = new Date('2026-08-05T09:00:00-07:00').getTime();
+        const cdDays = document.getElementById('cdDays');
+        const cdHours = document.getElementById('cdHours');
+        const cdMins = document.getElementById('cdMins');
+        const cdSecs = document.getElementById('cdSecs');
+
+        function updateCountdown() {
+            const now = Date.now();
+            const diff = Math.max(0, target - now);
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = Math.floor((diff % (1000 * 60)) / 1000);
+            cdDays.textContent = String(days).padStart(2, '0');
+            cdHours.textContent = String(hours).padStart(2, '0');
+            cdMins.textContent = String(mins).padStart(2, '0');
+            cdSecs.textContent = String(secs).padStart(2, '0');
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ─── Scroll Reveal (Intersection Observer) ───
+        const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+        revealEls.forEach(el => observer.observe(el));
+
+        // ─── Timeline items sequential reveal ───
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const tlObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const items = entry.target.querySelectorAll('.timeline-item');
+                    items.forEach((item, i) => {
+                        setTimeout(() => item.classList.add('visible'), i * 120);
+                    });
+                    tlObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        const timelineContainer = document.querySelector('.schedule-timeline');
+        if (timelineContainer) tlObserver.observe(timelineContainer);
+
+        // ─── Form Validation ───
+        const firstName = document.getElementById('firstName');
+        const lastName = document.getElementById('lastName');
+        const email = document.getElementById('email');
+        const reason = document.getElementById('reason');
+        const submitBtn = document.getElementById('submitBtn');
+        const formFields = document.getElementById('formFields');
+        const formSuccess = document.getElementById('formSuccess');
+
+        const errors = {
+            firstName: document.getElementById('firstNameError'),
+            lastName: document.getElementById('lastNameError'),
+            email: document.getElementById('emailError'),
+            reason: document.getElementById('reasonError'),
+        };
+
+        function validateField(input, errorEl, condition) {
+            if (!condition) {
+                input.classList.add('error');
+                errorEl.classList.add('show');
+                return false;
+            }
+            input.classList.remove('error');
+            errorEl.classList.remove('show');
+            return true;
+        }
+
+        function validateForm() {
+            const fn = firstName.value.trim();
+            const ln = lastName.value.trim();
+            const em = email.value.trim();
+            const re = reason.value.trim();
+            const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
+
+            const ok1 = validateField(firstName, errors.firstName, fn.length >= 2);
+            const ok2 = validateField(lastName, errors.lastName, ln.length >= 2);
+            const ok3 = validateField(email, errors.email, emailValid);
+            const ok4 = validateField(reason, errors.reason, re.length >= 10);
+
+            return ok1 && ok2 && ok3 && ok4;
+        }
+
+        [firstName, lastName, email, reason].forEach(input => {
+            input.addEventListener('blur', validateForm);
+            input.addEventListener('input', () => {
+                if (input.classList.contains('error')) validateForm();
+            });
+        });
+
+        submitBtn.addEventListener('click', () => {
+            if (validateForm()) {
+                formFields.classList.add('hide');
+                formSuccess.classList.add('show');
+                // Reset after 3s (optional)
+                setTimeout(() => {
+                    formFields.classList.remove('hide');
+                    formSuccess.classList.remove('show');
+                    firstName.value = '';
+                    lastName.value = '';
+                    email.value = '';
+                    reason.value = '';
+                    document.querySelectorAll('.form-group input, .form-group textarea').forEach(el => {
+                        el.classList.remove('error');
+                    });
+                    document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+                }, 4000);
+            }
+        });
+
+        // ─── Smooth reveal for gallery on load ───
+        document.addEventListener('DOMContentLoaded', () => {
+            // trigger any early reveals
+            revealEls.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    el.classList.add('visible');
+                }
+            });
+        });
+
+        // ─── Keyboard: Escape closes menu ───
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            }
+        });
+
+        console.log('🚀 Hackathon 2026 · Built with ❤️');
+    </script>
+
+</body>
+</html>
